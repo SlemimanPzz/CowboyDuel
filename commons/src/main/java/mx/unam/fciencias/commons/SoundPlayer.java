@@ -1,17 +1,22 @@
 package mx.unam.fciencias.commons;
 
 import android.content.Context;
-import android.content.Intent;
+import android.media.MediaPlayer;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 
+/**
+ * Plays the fireing sound.
+ *
+ * Here how to use worker:
+ *
+ * <a href="url">https://developer.android.com/topic/libraries/architecture/workmanager/advanced/worker?hl=es-419</a>
+ */
 public class SoundPlayer extends Worker {
-
-    // public static final String ACTION_FIRE = "mx.nachintoch.firstappexample.action.FIRE";
-
 
     public SoundPlayer(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
@@ -20,7 +25,15 @@ public class SoundPlayer extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        return null;
+        MediaPlayer mediaPlayer = MediaPlayer.create(this.getApplicationContext(), R.raw.fire);
+        try {
+            mediaPlayer.start();
+        } catch (IllegalStateException e) {
+            Log.d(SoundPlayer.class.getSimpleName(), "Firing Sound Failed");
+            return Result.failure();
+        }
+        Log.d(SoundPlayer.class.getSimpleName(), "Freeing sound success");
+        return Result.success();
 
     }
 }
