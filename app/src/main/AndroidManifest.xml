@@ -23,6 +23,7 @@
     </application>
 
 
+    
     <!-- Restricciones de la aplicacion -->
     <uses-feature android:name="android.hardware.audio.output" android:required="false"/>
     <uses-feature android:name="android.hardware.sensor.stepdetector" android:required="false"/>
