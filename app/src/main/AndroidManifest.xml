@@ -22,4 +22,11 @@
         </activity>
     </application>
 
+
+    <!-- Restricciones de la aplicacion -->
+    <uses-feature android:name="android.hardware.audio.output" android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.stepdetector" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="true"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="true"/>
+
 </manifest>
