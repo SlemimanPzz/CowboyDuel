@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CowboyDuel</string>
+    <string name="boton_inicio">Start duel</string>
 </resources>
