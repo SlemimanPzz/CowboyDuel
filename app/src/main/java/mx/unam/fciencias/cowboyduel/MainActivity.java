@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void fire(View gun) {
 
-        Worker.doWork();
+        Worker.startWork();
     }
 
 }
