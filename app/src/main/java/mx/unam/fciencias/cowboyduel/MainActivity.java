@@ -30,4 +30,9 @@ public class MainActivity extends AppCompatActivity {
         // Agregar funcion de contar pasos
     }
 
+    public void fire(View gun) {
+
+        Worker.doWork();
+    }
+
 }
