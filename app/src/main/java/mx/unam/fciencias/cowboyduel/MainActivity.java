@@ -1,13 +1,11 @@
 package mx.unam.fciencias.cowboyduel;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,7 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private ImageView gunView;
     private Button botonInicio;
@@ -28,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         botonInicio = findViewById(R.id.boton_inicio);
     }
 
-    /*
     @Override
     protected void onPause() {
         if (sensorManager != null){
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onPause();
     }
-    */
 
     @Override
     protected void onResume() {
@@ -83,8 +83,17 @@ this,
     }
 
     public void fire(View gun) {
-
         Worker.doWork();
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
     }
 
 }
